@@ -34,7 +34,7 @@ public struct FeedbackMailConfig : Sendable{
     }
     
     
-    @MainActor static func mailCOnfig(to email: String,
+    @MainActor static func mailConfig(to email: String,
                                        subject: String? = String.defaultSubject(),
                                        feedbackModule: FeedbackModule) -> FeedbackMailConfig {
         let subject = String.defaultSubject(subject)
@@ -43,7 +43,7 @@ public struct FeedbackMailConfig : Sendable{
         return FeedbackMailConfig(email: email, subject: subject, body: body)
     }
     
-    @MainActor static func mailCOnfig(to email: String,
+    @MainActor public static func mailConfig(to email: String,
                                        subject: String? = String.defaultSubject(),
                                        defaultFeedbackModule: DefaultFeedbackModule) -> FeedbackMailConfig {
         let subject = String.defaultSubject(subject)
@@ -141,10 +141,16 @@ protocol FeedbackModule {
 }
 
 // 创建一个默认的反馈模块结构体
-struct DefaultFeedbackModule: FeedbackModule {
-    let moduleName: String
-    let errorInfo: String?
-    let requestParameters: [String: Any]?
+public struct DefaultFeedbackModule: FeedbackModule {
+    public let moduleName: String
+    public let errorInfo: String?
+    public let requestParameters: [String: Any]?
+    
+    public init(moduleName: String, errorInfo: String? = nil, requestParameters: [String : Any]? = nil) {
+        self.moduleName = moduleName
+        self.errorInfo = errorInfo
+        self.requestParameters = requestParameters
+    }
 }
 
 
@@ -152,14 +158,14 @@ struct DefaultFeedbackModule: FeedbackModule {
 extension String {
     
     /// 默认的标题
-    static func defaultSubject(_ subjectTitle: String? = nil) -> String {
+    public static func defaultSubject(_ subjectTitle: String? = nil) -> String {
         let title = subjectTitle ?? NSLocalizedString("技术支持请求", bundle: .module, comment: "")
         let subject = "\(DeviceInfo.getAppName()) - \(title)"
         return subject
     }
     
     /// 获取设备基本信息
-    @MainActor static func deviceBaseInfo() -> String {
+    @MainActor public static func deviceBaseInfo() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let currentDate = dateFormatter.string(from: Date())
