@@ -8,19 +8,80 @@
 import SwiftUI
 import QuickMailSender
 
-struct ContentView: View {
+@available(iOS 15.0, macOS 13.0, *)
+public struct FeedbackView: View {
+    @State private var recipientEmail = "example@gmail.com"
+    @State private var subject = "应用反馈"
+    @State private var moduleName = "通用"
+    @State private var errorInfo = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    
     let sender = PlatformMailSender()
     
-    var body: some View {
-       
-        Button("Send Email", action: {
-            let module = DefaultFeedbackModule(moduleName: "聊天模块", errorInfo: "error:\(12312312312312)", requestParameters: ["key" : "Any"])
-            let configure = FeedbackMailConfig.mailConfig(to: "corotata@qq.com", defaultFeedbackModule: module)
-            sender.sendMail(config: configure)
-        })
+    public var body: some View {
+        Form {
+            Section(header: Text("邮件设置")) {
+                TextField("收件人邮箱", text: $recipientEmail)
+                TextField("主题", text: $subject)
+            }
+            
+            Section(header: Text("反馈信息")) {
+                TextField("模块名称", text: $moduleName)
+                TextField("错误信息 (可选)", text: $errorInfo)
+            }
+            
+            Section {
+                Button("发送反馈") {
+                    sendFeedback()
+                }
+            }
+        }
+        .alert("提示", isPresented: $showAlert) {
+            Button("确定", role: .cancel) { }
+        } message: {
+            Text(alertMessage)
+        }
+    }
+    
+    private func sendFeedback() {
+        let module = DefaultFeedbackModule(
+            moduleName: moduleName,
+            errorInfo: errorInfo.isEmpty ? nil : errorInfo,
+            requestParameters: ["timestamp": Date().timeIntervalSince1970]
+        )
+        
+        let config = FeedbackMailConfig.mailConfig(
+            to: recipientEmail,
+            subject: subject.isEmpty ? nil : subject,
+            defaultFeedbackModule: module
+        )
+        
+        sender.sendMail(config: config)
+    }
+    
+    private func showAlert(message: String) {
+        alertMessage = message
+        showAlert = true
     }
 }
 
+@available(iOS 15.0, macOS 13.0, *)
+struct ContentView: View {
+    var body: some View {
+#if canImport(AppKit)
+        FeedbackView()
+            .navigationTitle("反馈")
+#else
+        NavigationView {
+            FeedbackView()
+                .navigationTitle("反馈")
+        }
+        #endif
+    }
+}
+
+@available(iOS 15.0, macOS 13.0, *)
 #Preview {
     ContentView()
 }

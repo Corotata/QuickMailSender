@@ -6,18 +6,18 @@ import SwiftUI
 import UIKit
 import MessageUI
 
-public typealias PlatformViewController = UIViewController
-public typealias PlatformApplication = UIApplication
-public typealias MailComposeViewController = MFMailComposeViewController
-public typealias MailComposeResult = MFMailComposeResult
+typealias PlatformViewController = UIViewController
+typealias PlatformApplication = UIApplication
+typealias MailComposeViewController = MFMailComposeViewController
+typealias MailComposeResult = MFMailComposeResult
 
 #elseif canImport(AppKit)
 import AppKit
 
-public typealias PlatformViewController = NSViewController
-public typealias PlatformApplication = NSWorkspace
-public typealias MailComposeViewController = NSViewController
-public typealias MailComposeResult = Int
+typealias PlatformViewController = NSViewController
+typealias PlatformApplication = NSWorkspace
+typealias MailComposeViewController = NSViewController
+typealias MailComposeResult = Int
 
 #endif
 
@@ -35,18 +35,18 @@ public struct FeedbackMailConfig : Sendable{
     
     
     @MainActor static func mailConfig(to email: String,
-                                       subject: String? = String.defaultSubject(),
+                                       subject: String? = nil,
                                        feedbackModule: FeedbackModule) -> FeedbackMailConfig {
-        let subject = String.defaultSubject(subject)
         let body = String.generateEmailBody(feedbackModule: feedbackModule)
+        var subject = subject ?? String.defaultSubject()
         
         return FeedbackMailConfig(email: email, subject: subject, body: body)
     }
     
     @MainActor public static func mailConfig(to email: String,
-                                       subject: String? = String.defaultSubject(),
+                                       subject: String? = nil,
                                        defaultFeedbackModule: DefaultFeedbackModule) -> FeedbackMailConfig {
-        let subject = String.defaultSubject(subject)
+        var subject = subject ?? String.defaultSubject()
         let body = String.generateEmailBody(feedbackModule: defaultFeedbackModule)
         
         return FeedbackMailConfig(email: email, subject: subject, body: body)
@@ -121,10 +121,12 @@ public class PlatformMailSender: NSObject, MailSender, @preconcurrency MFMailCom
 // MARK: - 平台特定邮件发送器 (macOS)
 @available(macOS 13.0, *)
 public class PlatformMailSender: NSObject, MailSender {
-    public func sendMail(config: FeedbackMailConfig) async {
-        let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        if let url = URL(string: urlString) {
-            await PlatformApplication.shared.open(url)
+    public func sendMail(config: FeedbackMailConfig) {
+        Task {
+            let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+            if let url = URL(string: urlString) {
+                await PlatformApplication.shared.open(url)
+            }
         }
     }
 }
@@ -159,7 +161,7 @@ extension String {
     
     /// 默认的标题
     public static func defaultSubject(_ subjectTitle: String? = nil) -> String {
-        let title = subjectTitle ?? NSLocalizedString("技术支持请求", bundle: .module, comment: "")
+        let title = subjectTitle ?? NSLocalizedString("意见反馈", bundle: .module, comment: "")
         let subject = "\(DeviceInfo.getAppName()) - \(title)"
         return subject
     }
@@ -171,7 +173,7 @@ extension String {
         let currentDate = dateFormatter.string(from: Date())
         
         return """
-        \(NSLocalizedString("日期", bundle: .module, comment: "")): \(currentDate)
+        \(NSLocalizedString("当前日期", bundle: .module, comment: "")): \(currentDate)
         \(NSLocalizedString("应用名称", bundle: .module, comment: "")): \(DeviceInfo.getAppName())
         \(NSLocalizedString("应用版本", bundle: .module, comment: "")): \(DeviceInfo.getAppVersion())
         \(NSLocalizedString("设备型号", bundle: .module, comment: "")): \(DeviceInfo.getDeviceModel())
@@ -204,23 +206,10 @@ extension String {
             }
         }
         
-        info += "\n\n\(NSLocalizedString("意见反馈", bundle: .module, comment: "")): \n\n"
+        info += "\n\n\(NSLocalizedString("反馈内容", bundle: .module, comment: "")): \n\n\n\n"
         
         return info
     }
     
 }
 
-
-
-@available(iOS 15.0, macOS 13.0, *)
-struct FeedbackMailComposer {
-    @MainActor static func composeMail(to email: String,
-                                       subject: String? = String.defaultSubject(),
-                                       feedbackModule: FeedbackModule) -> FeedbackMailConfig {
-        let subject = String.defaultSubject(subject)
-        let body = String.generateEmailBody(feedbackModule: feedbackModule)
-        
-        return FeedbackMailConfig(email: email, subject: subject, body: body)
-    }
-}

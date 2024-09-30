@@ -22,16 +22,20 @@ struct DeviceInfo {
         return "\(version) (\(build))"
     }
     
-    static func getDeviceModel() -> String {
-        var systemInfo = utsname()
-        uname(&systemInfo)
-        let machineMirror = Mirror(reflecting: systemInfo.machine)
-        let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
-            return identifier + String(UnicodeScalar(UInt8(value)))
+    @MainActor static func getDeviceModel() -> String {
+            #if os(macOS)
+            // 获取 Mac 设备型号
+            var size: Int = 0
+            sysctlbyname("hw.model", nil, &size, nil, 0)
+            var model = [CChar](repeating: 0, count: size)
+            sysctlbyname("hw.model", &model, &size, nil, 0)
+            return String(cString: model)
+            #else
+        return UIDevice.modelName
+            #endif
         }
-        return identifier
-    }
+        
+        
     
     @MainActor static func getSystemVersion() -> String {
         #if os(iOS)
