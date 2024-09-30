@@ -46,7 +46,7 @@ Feedback:
 ### Swift Package Manager
 
 1. 在Xcode中，选择 File > Swift Packages > Add Package Dependency
-2. 输入仓库URL: `https://github.com/corotata/QuickMailSender.git`
+2. 输入仓库URL: `[https://github.com/corotata/QuickMailSender.git](https://github.com/Corotata/QuickMailSender)`
 3. 选择版本规则，建议使用最新版本
 
 ## 使用示例
