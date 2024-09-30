@@ -12,49 +12,44 @@ import UIKit
 #endif
 
 struct DeviceInfo {
-    /// 获取应用名称
     static func getAppName() -> String {
-        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
-        return appName ?? "Unknown App"
+        return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "Unknown"
     }
-
-    /// 获取应用版本号
+    
     static func getAppVersion() -> String {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        return appVersion ?? "Unknown Version"
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        let build = Bundle.main.infoDictionary?[kCFBundleVersionKey as String] as? String ?? "Unknown"
+        return "\(version) (\(build))"
     }
-
-    /// 获取应用系统版本号
-    static func getSystemVersion() -> String {
-        let systemVersion = ProcessInfo.processInfo.operatingSystemVersion
-        return "\(getPlatformName()) \(systemVersion.majorVersion).\(systemVersion.minorVersion).\(systemVersion.patchVersion)"
+    
+    static func getDeviceModel() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        return identifier
     }
-
-    /// 获取平台数据
-    static func getPlatformName() -> String {
-        #if os(macOS)
-        return "macOS"
-        #elseif os(iOS)
-        return "iOS"
-        #elseif os(tvOS)
-        return "tvOS"
-        #elseif os(watchOS)
-        return "watchOS"
+    
+    @MainActor static func getSystemVersion() -> String {
+        #if os(iOS)
+        return UIDevice.current.systemVersion
+        #elseif os(macOS)
+        return ProcessInfo.processInfo.operatingSystemVersionString
         #else
-        return "Unknown OS"
+        return "Unknown"
         #endif
     }
-
-    /// 获取设备号
-    @MainActor static func getDeviceModel() -> String {
-        #if os(macOS)
-        var size: Int = 0
-        sysctlbyname("hw.model", nil, &size, nil, 0)
-        var model = [CChar](repeating: 0, count: size)
-        sysctlbyname("hw.model", &model, &size, nil, 0)
-        return String(cString: model)
+    
+    @MainActor static func getDeviceIdentifier() -> String {
+        #if os(iOS)
+        return UIDevice.current.identifierForVendor?.uuidString ?? "Unknown"
+        #elseif os(macOS)
+        return (try? Data(contentsOf: URL(fileURLWithPath: "/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist")))?.base64EncodedString() ?? "Unknown"
         #else
-        return UIDevice.current.model
+        return "Unknown"
         #endif
     }
 }

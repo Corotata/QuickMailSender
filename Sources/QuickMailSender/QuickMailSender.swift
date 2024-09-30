@@ -32,6 +32,27 @@ public struct FeedbackMailConfig : Sendable{
         self.subject = subject
         self.body = body
     }
+    
+    
+    @MainActor static func mailCOnfig(to email: String,
+                                       subject: String? = String.defaultSubject(),
+                                       feedbackModule: FeedbackModule) -> FeedbackMailConfig {
+        let subject = String.defaultSubject(subject)
+        let body = String.generateEmailBody(feedbackModule: feedbackModule)
+        
+        return FeedbackMailConfig(email: email, subject: subject, body: body)
+    }
+    
+    @MainActor static func mailCOnfig(to email: String,
+                                       subject: String? = String.defaultSubject(),
+                                       defaultFeedbackModule: DefaultFeedbackModule) -> FeedbackMailConfig {
+        let subject = String.defaultSubject(subject)
+        let body = String.generateEmailBody(feedbackModule: defaultFeedbackModule)
+        
+        return FeedbackMailConfig(email: email, subject: subject, body: body)
+    }
+    
+    
     static let imageExtractor = FeedbackMailConfig(
         email: "myhdify@gmail.com",
         subject: "图片提取功能反馈",
@@ -131,10 +152,10 @@ struct DefaultFeedbackModule: FeedbackModule {
 extension String {
     
     /// 默认的标题
-    static func defaultSubject(_ subjectTitle: String?) -> String {
-        let title = subjectTitle ?? NSLocalizedString("意见反馈", bundle: .module, comment: "")
+    static func defaultSubject(_ subjectTitle: String? = nil) -> String {
+        let title = subjectTitle ?? NSLocalizedString("技术支持请求", bundle: .module, comment: "")
         let subject = "\(DeviceInfo.getAppName()) - \(title)"
-        return subject // 不进行 URL 编码，保持可读性
+        return subject
     }
     
     /// 获取设备基本信息
@@ -145,29 +166,28 @@ extension String {
         
         return """
         \(NSLocalizedString("日期", bundle: .module, comment: "")): \(currentDate)
-        \(NSLocalizedString("应用程序", bundle: .module, comment: "")): \(DeviceInfo.getAppName())
+        \(NSLocalizedString("应用名称", bundle: .module, comment: "")): \(DeviceInfo.getAppName())
         \(NSLocalizedString("应用版本", bundle: .module, comment: "")): \(DeviceInfo.getAppVersion())
-        \(NSLocalizedString("设备信息", bundle: .module, comment: "")): \(DeviceInfo.getDeviceModel())
-        \(NSLocalizedString("系统信息", bundle: .module, comment: "")): \(DeviceInfo.getSystemVersion())
+        \(NSLocalizedString("设备型号", bundle: .module, comment: "")): \(DeviceInfo.getDeviceModel())
+        \(NSLocalizedString("操作系统", bundle: .module, comment: "")): \(DeviceInfo.getSystemVersion())
         """
     }
     
     /// 生成邮件正文
-    @MainActor static func generateEmailBody(feedbackContent: String, feedbackModule: FeedbackModule) -> String {
+    @MainActor static func generateEmailBody(feedbackModule: FeedbackModule) -> String {
         var body = deviceBaseInfo()
-        body += "\n\n\(NSLocalizedString("反馈内容", bundle: .module, comment: "")):\n\n\(feedbackContent)\n\n"
-        body += generateFeedbackModuleInfo(feedbackModule)
+        body += "\n\n" + generateFeedbackModuleInfo(feedbackModule)
         return body
     }
     
     // 生成反馈模块信息的函数
     static func generateFeedbackModuleInfo(_ module: FeedbackModule) -> String {
-        var info = "\(NSLocalizedString("反馈模块", bundle: .module, comment: "")): \(module.moduleName)\n"
+        var info = "\(NSLocalizedString("内容模块", bundle: .module, comment: "")): \(module.moduleName)\n"
         if let errorInfo = module.errorInfo {
             info += "\(NSLocalizedString("错误信息", bundle: .module, comment: "")): \(errorInfo)\n"
         }
         if let parameters = module.requestParameters {
-            info += "\(NSLocalizedString("请求参数", bundle: .module, comment: "")):\n"
+            info += "\(NSLocalizedString("相关参数", bundle: .module, comment: "")):\n"
             let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
             if let jsonString = jsonData.flatMap({ String(data: $0, encoding: .utf8) }) {
                 info += jsonString
@@ -177,6 +197,9 @@ extension String {
                 }
             }
         }
+        
+        info += "\n\n\(NSLocalizedString("意见反馈", bundle: .module, comment: "")): \n\n"
+        
         return info
     }
     
@@ -184,15 +207,14 @@ extension String {
 
 
 
-
 @available(iOS 15.0, macOS 13.0, *)
 struct FeedbackMailComposer {
-    @MainActor static func composeMail(to email: String, subject: String?, feedbackContent: String, feedbackModule: FeedbackModule) -> FeedbackMailConfig {
+    @MainActor static func composeMail(to email: String,
+                                       subject: String? = String.defaultSubject(),
+                                       feedbackModule: FeedbackModule) -> FeedbackMailConfig {
         let subject = String.defaultSubject(subject)
-        let body = String.generateEmailBody(feedbackContent: feedbackContent, feedbackModule: feedbackModule)
+        let body = String.generateEmailBody(feedbackModule: feedbackModule)
         
         return FeedbackMailConfig(email: email, subject: subject, body: body)
     }
 }
-
-

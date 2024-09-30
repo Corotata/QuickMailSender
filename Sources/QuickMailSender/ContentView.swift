@@ -10,17 +10,26 @@ import SwiftUI
 
 
 struct ContentView: View {
+    let sender = PlatformMailSender()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        Button("Send Email", action: {
+            let module = DefaultFeedbackModule(moduleName: "聊天模块", errorInfo: "error:\(12312312312312)", requestParameters: ["key" : "Any"])
+            let configure = FeedbackMailConfig.mailCOnfig(to: "corotata@qq.com", defaultFeedbackModule: module)
+            sender.sendMail(config: configure)
+        })
             .onAppear {
-                let subject = String.defaultSubject("意见反馈")
+//                let subject = String.defaultSubject(nil)
                 let module = DefaultFeedbackModule(moduleName: "聊天模块", errorInfo: "error:\(12312312312312)", requestParameters: ["key" : "Any"])
-                let body = String.generateEmailBody(feedbackContent: "123123123", feedbackModule: module)
-                
-                
-                print("subject:\n\(subject)")
-                
-                print("body:\n\(body)")
+//                let body = String.generateEmailBody(feedbackModule: module)
+//                
+//               
+//                print("subject:\n\(subject)")
+//                
+//                print("body:\n\(body)")
+                let configure = FeedbackMailConfig.mailCOnfig(to: "corotata@qq.com", defaultFeedbackModule: module)
+                print(configure)
                 
             }
     }
