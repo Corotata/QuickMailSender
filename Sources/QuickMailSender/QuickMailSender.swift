@@ -40,6 +40,7 @@ public struct FeedbackMailConfig : Sendable{
 }
 
 // MARK: - 邮件发送协议
+@available(iOS 15.0, macOS 13.0, *)
 protocol MailSender {
     func sendMail(config: FeedbackMailConfig) async
 }
@@ -48,8 +49,9 @@ protocol MailSender {
 import UIKit
 
 
-// MARK: - 平台特定邮件发送器
-public class PlatformMailSender: NSObject, MailSender {
+// MARK: - 平台特定邮件发送器 (iOS)
+@available(iOS 15.0, *)
+public class PlatformMailSender: NSObject, MailSender, @preconcurrency MFMailComposeViewControllerDelegate {
     private weak var viewController: UIViewController?
     
     private var completion: ((Result<MailComposeResult, Error>) -> Void)?
@@ -81,9 +83,6 @@ public class PlatformMailSender: NSObject, MailSender {
         }
     }
    
-}
-
-extension PlatformMailSender: @preconcurrency MFMailComposeViewControllerDelegate {
     @MainActor
     public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true) {
@@ -96,20 +95,37 @@ extension PlatformMailSender: @preconcurrency MFMailComposeViewControllerDelegat
     }
 }
 
-
 #elseif canImport(AppKit)
 
+// MARK: - 平台特定邮件发送器 (macOS)
+@available(macOS 13.0, *)
 public class PlatformMailSender: NSObject, MailSender {
-    public func sendMail(config: FeedbackMailConfig) {
+    public func sendMail(config: FeedbackMailConfig) async {
         let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         if let url = URL(string: urlString) {
-            PlatformApplication.shared.open(url)
+            await PlatformApplication.shared.open(url)
         }
     }
 }
 
 
 #endif
+
+
+// 定义反馈模块协议
+protocol FeedbackModule {
+    var moduleName: String { get }
+    var errorInfo: String? { get }
+    var requestParameters: [String: Any]? { get }
+}
+
+// 创建一个默认的反馈模块结构体
+struct DefaultFeedbackModule: FeedbackModule {
+    let moduleName: String
+    let errorInfo: String?
+    let requestParameters: [String: Any]?
+}
+
 
 
 extension String {
@@ -129,70 +145,52 @@ extension String {
         \(NSLocalizedString("应用版本", bundle: .module, comment: "")):\(DeviceInfo.getAppVersion())
         \(NSLocalizedString("设备信息", bundle: .module, comment: "")):\(DeviceInfo.getDeviceModel())
         \(NSLocalizedString("系统信息", bundle: .module, comment: "")):\(DeviceInfo.getSystemVersion())
-        \n==========================================================\n
+        \n==========================================================\n\n
         """
     }
     
     /// 生成邮件正文
-    static func generateEmailBody(feedbackContent: String, feedbackModule: String, url: String?) -> String {
+    @MainActor static func generateEmailBody(feedbackContent: String, feedbackModule: FeedbackModule) -> String {
         var body = deviceBaseInfo()
         
-        // 定义反馈模块协议
-        protocol FeedbackModule {
-            var moduleName: String { get }
-            var errorInfo: String? { get }
-            var requestParameters: [String: Any]? { get }
-        }
-
-        // 创建一个默认的反馈模块结构体
-        struct DefaultFeedbackModule: FeedbackModule {
-            let moduleName: String
-            let errorInfo: String?
-            let requestParameters: [String: Any]?
-        }
-
-        // 生成反馈模块信息的函数
-        func generateFeedbackModuleInfo(_ module: FeedbackModule) -> String {
-            var info = "\(NSLocalizedString("反馈模块", bundle: .module, comment: "")): \(module.moduleName)\n"
-            if let errorInfo = module.errorInfo {
-                info += "\(NSLocalizedString("错误信息", bundle: .module, comment: "")): \(errorInfo)\n"
-            }
-            if let parameters = module.requestParameters {
-                info += "\(NSLocalizedString("请求参数", bundle: .module, comment: "")):\n"
-                for (key, value) in parameters {
-                    info += "  \(key): \(value)\n"
-                }
-            }
-            return info
-        }
-
         // 使用新的反馈模块信息生成邮件正文
         body += """
         \(NSLocalizedString("反馈内容", bundle: .module, comment: "")):\n
         \(feedbackContent)
-
         \(generateFeedbackModuleInfo(feedbackModule))
-        """
-        
         \(NSLocalizedString("反馈模块", bundle: .module, comment: "")):\(feedbackModule)
         
-        """
         
-        if let url = url {
-            body += """
-            
-            URL: \(url)
-            """
-        }
+        """
         
         return body
     }
+    
+    // 生成反馈模块信息的函数
+    static func generateFeedbackModuleInfo(_ module: FeedbackModule) -> String {
+        var info = "\(NSLocalizedString("反馈模块", bundle: .module, comment: "")): \(module.moduleName)\n"
+        if let errorInfo = module.errorInfo {
+            info += "\(NSLocalizedString("错误信息", bundle: .module, comment: "")): \(errorInfo)\n"
+        }
+        if let parameters = module.requestParameters {
+            info += "\(NSLocalizedString("请求参数", bundle: .module, comment: "")):\n"
+            for (key, value) in parameters {
+                info += "  \(key): \(value)\n"
+            }
+        }
+        return info
+    }
+    
 }
 
+
+
+
+@available(iOS 15.0, macOS 13.0, *)
 struct FeedbackMailComposer {
-    static func composeMail(to email: String, subject: String?, feedbackContent: String, feedbackModule: String, url: String?) -> FeedbackMailConfig {
+    @MainActor static func composeMail(to email: String, subject: String?, feedbackContent: String, feedbackModule: FeedbackModule) -> FeedbackMailConfig {
         let subject = String.defaultSubject(subject)
-        let body = String.generateEmailBody(feedbackContent: feedbackContent, feedbackModule: feedbackModule, url: url)
+        let body = String.generateEmailBody(feedbackContent: feedbackContent, feedbackModule: feedbackModule)
         
         return FeedbackMailConfig(email: email, subject: subject, body: body)
     }
