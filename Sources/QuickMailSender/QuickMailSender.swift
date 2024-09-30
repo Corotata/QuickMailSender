@@ -134,35 +134,29 @@ extension String {
     static func defaultSubject(_ subjectTitle: String?) -> String {
         let title = subjectTitle ?? NSLocalizedString("意见反馈", bundle: .module, comment: "")
         let subject = "\(DeviceInfo.getAppName()) - \(title)"
-        
-        return subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject
+        return subject // 不进行 URL 编码，保持可读性
     }
     
     /// 获取设备基本信息
     @MainActor static func deviceBaseInfo() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentDate = dateFormatter.string(from: Date())
+        
         return """
-        \(NSLocalizedString("应用程序", bundle: .module, comment: "")):\(DeviceInfo.getAppName())
-        \(NSLocalizedString("应用版本", bundle: .module, comment: "")):\(DeviceInfo.getAppVersion())
-        \(NSLocalizedString("设备信息", bundle: .module, comment: "")):\(DeviceInfo.getDeviceModel())
-        \(NSLocalizedString("系统信息", bundle: .module, comment: "")):\(DeviceInfo.getSystemVersion())
-        \n==========================================================\n\n
+        \(NSLocalizedString("日期", bundle: .module, comment: "")): \(currentDate)
+        \(NSLocalizedString("应用程序", bundle: .module, comment: "")): \(DeviceInfo.getAppName())
+        \(NSLocalizedString("应用版本", bundle: .module, comment: "")): \(DeviceInfo.getAppVersion())
+        \(NSLocalizedString("设备信息", bundle: .module, comment: "")): \(DeviceInfo.getDeviceModel())
+        \(NSLocalizedString("系统信息", bundle: .module, comment: "")): \(DeviceInfo.getSystemVersion())
         """
     }
     
     /// 生成邮件正文
     @MainActor static func generateEmailBody(feedbackContent: String, feedbackModule: FeedbackModule) -> String {
         var body = deviceBaseInfo()
-        
-        // 使用新的反馈模块信息生成邮件正文
-        body += """
-        \(NSLocalizedString("反馈内容", bundle: .module, comment: "")):\n
-        \(feedbackContent)
-        \(generateFeedbackModuleInfo(feedbackModule))
-        \(NSLocalizedString("反馈模块", bundle: .module, comment: "")):\(feedbackModule)
-        
-        
-        """
-        
+        body += "\n\n\(NSLocalizedString("反馈内容", bundle: .module, comment: "")):\n\n\(feedbackContent)\n\n"
+        body += generateFeedbackModuleInfo(feedbackModule)
         return body
     }
     
@@ -174,8 +168,13 @@ extension String {
         }
         if let parameters = module.requestParameters {
             info += "\(NSLocalizedString("请求参数", bundle: .module, comment: "")):\n"
-            for (key, value) in parameters {
-                info += "  \(key): \(value)\n"
+            let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            if let jsonString = jsonData.flatMap({ String(data: $0, encoding: .utf8) }) {
+                info += jsonString
+            } else {
+                for (key, value) in parameters {
+                    info += "  \(key): \(value)\n"
+                }
             }
         }
         return info

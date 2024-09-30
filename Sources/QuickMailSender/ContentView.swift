@@ -17,9 +17,11 @@ struct ContentView: View {
                 let module = DefaultFeedbackModule(moduleName: "聊天模块", errorInfo: "error:\(12312312312312)", requestParameters: ["key" : "Any"])
                 let body = String.generateEmailBody(feedbackContent: "123123123", feedbackModule: module)
                 
+                
                 print("subject:\n\(subject)")
                 
                 print("body:\n\(body)")
+                
             }
     }
 }
