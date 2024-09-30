@@ -116,50 +116,85 @@ extension String {
     
     /// 默认的标题
     static func defaultSubject(_ subjectTitle: String?) -> String {
-        let title = subjectTitle ?? String(localized: "意见反馈",bundle: .module)
+        let title = subjectTitle ?? NSLocalizedString("意见反馈", bundle: .module, comment: "")
         let subject = "\(DeviceInfo.getAppName()) - \(title)"
         
-        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        return encodedSubject
+        return subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject
     }
     
-    
+    /// 获取设备基本信息
     @MainActor static func deviceBaseInfo() -> String {
-            return """
-                    \(String(localized: "应用程序",bundle: .module)):\(DeviceInfo.getAppName())
-                    \(String(localized: "应用版本",bundle: .module)):\(DeviceInfo.getAppVersion())
-                    \(String(localized: "设备信息",bundle: .module)):\(DeviceInfo.getDeviceModel())
-                    \(String(localized: "系统信息",bundle: .module)):\(DeviceInfo.getSystemVersion())
-                            \n==========================================================\n
-            """
-        
+        return """
+        \(NSLocalizedString("应用程序", bundle: .module, comment: "")):\(DeviceInfo.getAppName())
+        \(NSLocalizedString("应用版本", bundle: .module, comment: "")):\(DeviceInfo.getAppVersion())
+        \(NSLocalizedString("设备信息", bundle: .module, comment: "")):\(DeviceInfo.getDeviceModel())
+        \(NSLocalizedString("系统信息", bundle: .module, comment: "")):\(DeviceInfo.getSystemVersion())
+        \n==========================================================\n
+        """
     }
     
-    static func geBody() -> String {
-        //获取应用名和版本号
-        var body = """
-            \(String(localized: "应用程序",bundle: .module)):\(DeviceInfo.getAppName())
-            \(String(localized: "应用版本",bundle: .module)):\(DeviceInfo.getAppVersion())
-            \(String(localized: "设备信息",bundle: .module)):\(DeviceInfo.getDeviceModel())
-            \(String(localized: "系统信息",bundle: .module)):\(DeviceInfo.getSystemVersion())
-                    \n==========================================================\n
-            \(String(localized: "反馈内容",bundle: .module)):\n
+    /// 生成邮件正文
+    static func generateEmailBody(feedbackContent: String, feedbackModule: String, url: String?) -> String {
+        var body = deviceBaseInfo()
+        
+        // 定义反馈模块协议
+        protocol FeedbackModule {
+            var moduleName: String { get }
+            var errorInfo: String? { get }
+            var requestParameters: [String: Any]? { get }
+        }
+
+        // 创建一个默认的反馈模块结构体
+        struct DefaultFeedbackModule: FeedbackModule {
+            let moduleName: String
+            let errorInfo: String?
+            let requestParameters: [String: Any]?
+        }
+
+        // 生成反馈模块信息的函数
+        func generateFeedbackModuleInfo(_ module: FeedbackModule) -> String {
+            var info = "\(NSLocalizedString("反馈模块", bundle: .module, comment: "")): \(module.moduleName)\n"
+            if let errorInfo = module.errorInfo {
+                info += "\(NSLocalizedString("错误信息", bundle: .module, comment: "")): \(errorInfo)\n"
+            }
+            if let parameters = module.requestParameters {
+                info += "\(NSLocalizedString("请求参数", bundle: .module, comment: "")):\n"
+                for (key, value) in parameters {
+                    info += "  \(key): \(value)\n"
+                }
+            }
+            return info
+        }
+
+        // 使用新的反馈模块信息生成邮件正文
+        body += """
+        \(NSLocalizedString("反馈内容", bundle: .module, comment: "")):\n
+        \(feedbackContent)
+
+        \(generateFeedbackModuleInfo(feedbackModule))
+        """
+        
+        \(NSLocalizedString("反馈模块", bundle: .module, comment: "")):\(feedbackModule)
+        
+        """
+        
+        if let url = url {
+            body += """
             
-            \(String(localized: "反馈模块",bundle: .module)):"URL解析"
-            
-            Parmper:\n
-            
-            URL:\(url)
-            
-            
+            URL: \(url)
             """
+        }
+        
+        return body
+    }
+}
 
-
-        // 对subject和body进行URL编码，以处理空格和特殊字符
-        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-
-        mailSender.sendMail(config: FeedbackMailConfig(email: "myhdify@gmail.com", subject: encodedSubject, body: encodedBody))
+struct FeedbackMailComposer {
+    static func composeMail(to email: String, subject: String?, feedbackContent: String, feedbackModule: String, url: String?) -> FeedbackMailConfig {
+        let subject = String.defaultSubject(subject)
+        let body = String.generateEmailBody(feedbackContent: feedbackContent, feedbackModule: feedbackModule, url: url)
+        
+        return FeedbackMailConfig(email: email, subject: subject, body: body)
     }
 }
 
