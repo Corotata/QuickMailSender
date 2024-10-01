@@ -38,7 +38,9 @@ public struct FeedbackView: View {
                 }
             }
         }
+#if canImport(AppKit)
         .padding()
+#endif
         .alert("提示", isPresented: $showAlert) {
             Button("确定", role: .cancel) { }
         } message: {
