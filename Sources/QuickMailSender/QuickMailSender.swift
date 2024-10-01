@@ -304,11 +304,19 @@ actor MailSenderActor {
 }
 
 @MainActor
-public class PlatformMailSender: NSObject, @preconcurrency MailSender, MFMailComposeViewControllerDelegate {
+public class QuickMailSender: NSObject, @preconcurrency MailSender, MFMailComposeViewControllerDelegate {
     private let mailActor = MailSenderActor()
+    
+    public static let `default` = QuickMailSender()
     
     public override init() {
         super.init()
+    }
+    
+    /// 发送邮件
+    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, completion: @escaping @Sendable (MailSendResult) -> Void){
+        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule)
+        sendMail(config: config, completion: completion)
     }
     
     public func sendMail(config: FeedbackMailConfig, completion: @escaping @Sendable (MailSendResult) -> Void) {

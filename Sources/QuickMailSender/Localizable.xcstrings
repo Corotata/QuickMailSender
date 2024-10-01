@@ -1,179 +1,496 @@
 {
   "sourceLanguage" : "en",
-  "version" : "1.0",
   "strings" : {
-    "意见反馈" : {
+    "内容模块" : {
       "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Feedback van mening",
-            "state" : "translated"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Umpan balik",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informacje zwrotne"
+            "value" : "وحدة المحتوى"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modul obsahu"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Feedback"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Maklum Balas",
-            "state" : "translated"
+            "value" : "Inhaltsmodul"
           }
         },
         "en" : {
           "stringUnit" : {
-            "value" : "Feedback",
-            "state" : "translated"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
             "state" : "translated",
-            "value" : "意見反饋"
+            "value" : "Content Module"
           }
         },
         "es" : {
           "stringUnit" : {
-            "value" : "Retroalimentación de opiniones",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
             "state" : "translated",
-            "value" : "Visszajelzés"
+            "value" : "Módulo de contenido"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Palaute"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "意见反馈"
+            "value" : "Sisältömoduuli"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "value" : "Commentaires",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Module de contenu"
           }
         },
-        "ko" : {
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "의견 피드백"
+            "value" : "Tartalommodul"
           }
         },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "ملاحظات",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Отзыв о мнении"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "value" : "Zpětná vazba",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "value" : "意見フィードバック",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Feedback de opiniões",
-            "state" : "translated"
+            "value" : "Modul konten"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Feedback sulle opinioni"
+            "value" : "Modulo di contenuto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コンテンツモジュール"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "콘텐츠 모듈"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modul Kandungan"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhoudsmodule"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moduł treści"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Módulo de conteúdo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Модуль содержания"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内容模块"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "內容模塊"
+          }
+        }
+      }
+    },
+    "反馈内容" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المحتوى الراجع"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obsah zpětné vazby"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback-Inhalt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenido de la retroalimentación"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palautteen sisältö"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenu du retour"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszajelzés tartalma"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isi feedback"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contenuto del feedback"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フィードバック内容"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "피드백 내용"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kandungan Maklum Balas"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback inhoud"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treść opinii"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conteúdo do feedback"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Содержание отзыва"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反馈内容"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "反饋內容"
+          }
+        }
+      }
+    },
+    "发送失败：" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فشل الإرسال:"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odeslání selhalo:"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senden fehlgeschlagen:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to send:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error al enviar:"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lähetys epäonnistui:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l'envoi:"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Küldés sikertelen:"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gagal mengirim:"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invio fallito:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "送信に失敗しました:"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전송 실패:"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gagal dihantar:"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verzenden mislukt:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie udało się wysłać:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falha ao enviar:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось отправить:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发送失败："
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "發送失敗："
+          }
+        }
+      }
+    },
+    "已保存" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم الحفظ"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uloženo"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gespeichert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardado"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tallennettu"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistré"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mentve"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disimpan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salvato"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存しました"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장됨"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disimpan"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opgeslagen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisano"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已保存"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已儲存"
           }
         }
       }
     },
     "已取消" : {
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "value" : "Abgebrochen",
-            "state" : "translated"
-          }
-        },
-        "fi" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peruutettu"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geannuleerd"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キャンセルされました"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Dibatalkan",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "value" : "Отменено",
-            "state" : "translated"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "value" : "Annulé",
-            "state" : "translated"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "취소됨"
+            "value" : "تم الإلغاء"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zrušeno"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abgebrochen"
           }
         },
         "en" : {
@@ -184,20 +501,20 @@
         },
         "es" : {
           "stringUnit" : {
-            "value" : "Cancelado",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Cancelado"
           }
         },
-        "it" : {
+        "fi" : {
           "stringUnit" : {
-            "value" : "Annullato",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Peruutettu"
           }
         },
-        "pl" : {
+        "fr" : {
           "stringUnit" : {
-            "value" : "Anulowano",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Annulé"
           }
         },
         "hu" : {
@@ -206,664 +523,86 @@
             "value" : "Törölve"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "已取消",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تم الإلغاء"
-          }
-        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dibatalkan"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "value" : "已取消",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Cancelado",
-            "state" : "translated"
-          }
-        }
-      }
-    },
-    "当前日期" : {
-      "localizations" : {
-        "ko" : {
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "현재 날짜"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "當前日期"
+            "value" : "Annullato"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "現在の日付"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "value" : "Fecha actual",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data atual"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktuální datum"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "التاريخ الحالي",
-            "state" : "translated"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "value" : "Date actuelle",
-            "state" : "translated"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前日期"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tanggal saat ini"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "Aktualna data",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "value" : "Aktuelles Datum",
-            "state" : "translated"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nykyinen päivämäärä"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tarikh Semasa"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "Current Date",
-            "state" : "translated"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Huidige datum",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktuális dátum"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Текущая дата"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Data corrente",
-            "state" : "translated"
-          }
-        }
-      }
-    },
-    "已保存" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存しました"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "value" : "저장됨",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "value" : "Mentve",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gespeichert"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disimpan"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guardado"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "Zapisano",
-            "state" : "translated"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "value" : "Enregistré",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guardado"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "value" : "Сохранено",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "تم الحفظ",
-            "state" : "translated"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Tallennettu",
-            "state" : "translated"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "已保存",
-            "state" : "translated"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已儲存"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Disimpan",
-            "state" : "translated"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uloženo"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Opgeslagen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "Saved",
-            "state" : "translated"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Salvato",
-            "state" : "translated"
-          }
-        }
-      }
-    },
-    "设备型号" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "طراز الجهاز"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modèle de l'appareil"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Device Model"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modelo do dispositivo"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "设备型号",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "value" : "Модель устройства",
-            "state" : "translated"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Apparaatmodel",
-            "state" : "translated"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Model Peranti",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "value" : "デバイスモデル",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Model urządzenia"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "value" : "장치 모델",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gerätemodell"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "value" : "設備型號",
-            "state" : "translated"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Model perangkat"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modello del dispositivo"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "value" : "Eszközmodell",
-            "state" : "translated"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Model zařízení"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "value" : "Modelo de dispositivo",
-            "state" : "translated"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laitemalli"
-          }
-        }
-      }
-    },
-    "反馈内容" : {
-      "localizations" : {
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conteúdo do feedback"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "value" : "Содержание отзыва",
-            "state" : "translated"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kandungan Maklum Balas"
+            "value" : "キャンセルされました"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "피드백 내용"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "المحتوى الراجع"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "Treść opinii",
-            "state" : "translated"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Contenido de la retroalimentación"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "value" : "Visszajelzés tartalma",
-            "state" : "translated"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Contenuto del feedback",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フィードバック内容"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "反馈内容",
-            "state" : "translated"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feedback inhoud"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "反饋內容"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "value" : "Contenu du retour",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feedback-Inhalt"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obsah zpětné vazby"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Palautteen sisältö"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Isi feedback",
-            "state" : "translated"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feedback"
-          }
-        }
-      }
-    },
-    "操作系统" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Système d'exploitation"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Sistema operativo",
-            "state" : "translated"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "操作系统"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "操作系統"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "운영 체제"
+            "value" : "취소됨"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sistem Pengendalian"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "Operating System",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "System operacyjny",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "value" : "Operációs rendszer",
-            "state" : "translated"
+            "value" : "Dibatalkan"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Besturingssysteem"
+            "value" : "Geannuleerd"
           }
         },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Käyttöjärjestelmä",
-            "state" : "translated"
-          }
-        },
-        "de" : {
+        "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Betriebssystem"
+            "value" : "Anulowano"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "value" : "Sistema operativo",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "value" : "オペレーティングシステム",
-            "state" : "translated"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "value" : "Operační systém",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
             "state" : "translated",
-            "value" : "نظام التشغيل"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema operativo"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Sistem operasi",
-            "state" : "translated"
+            "value" : "Cancelado"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Операционная система"
+            "value" : "Отменено"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已取消"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已取消"
           }
         }
       }
     },
     "已提交，请稍后核对邮件是否发送成功。" : {
       "localizations" : {
-        "fi" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lähetetty, tarkista sähköpostin toimitus myöhemmin."
+            "value" : "تم الإرسال. يرجى التحقق لاحقًا مما إذا كان البريد الإلكتروني قد أُرسل بنجاح."
           }
         },
-        "pt-PT" : {
+        "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Submetido, verifique mais tarde se o e-mail foi enviado com sucesso."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Telah dihantar. Sila periksa kemudian sama ada e-mel berjaya dihantar."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Telah dikirim, silakan cek nanti apakah email berhasil terkirim.",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zgłoszono. Proszę sprawdzić później, czy e-mail został wysłany pomyślnie."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отправлено. Пожалуйста, проверьте позже, успешно ли отправлено письмо."
+            "value" : "Odesláno, zkontrolujte později, zda byl e-mail úspěšně odeslán."
           }
         },
         "de" : {
@@ -878,16 +617,16 @@
             "value" : "Submitted. Please check later if the email was successfully sent."
           }
         },
-        "zh-Hant" : {
+        "es" : {
           "stringUnit" : {
-            "value" : "已提交，請稍後確認郵件是否發送成功。",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Enviado, por favor revisa más tarde si el correo se envió correctamente."
           }
         },
-        "it" : {
+        "fi" : {
           "stringUnit" : {
-            "value" : "Inviato. Si prega di verificare più tardi se l'email è stata inviata con successo.",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Lähetetty, tarkista sähköpostin toimitus myöhemmin."
           }
         },
         "fr" : {
@@ -896,28 +635,22 @@
             "value" : "Soumis. Veuillez vérifier plus tard si l'email a été envoyé avec succès."
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enviado, por favor revisa más tarde si el correo se envió correctamente."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "已提交，请稍后核对邮件是否发送成功。",
-            "state" : "translated"
-          }
-        },
         "hu" : {
           "stringUnit" : {
-            "value" : "Beküldve, később ellenőrizze, hogy sikeres volt-e az e-mail küldése.",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Beküldve, később ellenőrizze, hogy sikeres volt-e az e-mail küldése."
           }
         },
-        "cs" : {
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odesláno, zkontrolujte později, zda byl e-mail úspěšně odeslán."
+            "value" : "Telah dikirim, silakan cek nanti apakah email berhasil terkirim."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inviato. Si prega di verificare più tardi se l'email è stata inviata con successo."
           }
         },
         "ja" : {
@@ -932,26 +665,128 @@
             "value" : "제출되었습니다. 이메일 전송 여부를 잠시 후 확인해주세요."
           }
         },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telah dihantar. Sila periksa kemudian sama ada e-mel berjaya dihantar."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ingediend, controleer later of de e-mail succesvol is verzonden."
           }
         },
-        "ar" : {
+        "pl" : {
           "stringUnit" : {
-            "value" : "تم الإرسال. يرجى التحقق لاحقًا مما إذا كان البريد الإلكتروني قد أُرسل بنجاح.",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Zgłoszono. Proszę sprawdzić później, czy e-mail został wysłany pomyślnie."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submetido, verifique mais tarde se o e-mail foi enviado com sucesso."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отправлено. Пожалуйста, проверьте позже, успешно ли отправлено письмо."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已提交，请稍后核对邮件是否发送成功。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已提交，請稍後確認郵件是否發送成功。"
           }
         }
       }
     },
     "应用名称" : {
       "localizations" : {
-        "zh-Hans" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "应用名称"
+            "value" : "اسم التطبيق"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Název aplikace"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Name"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de la aplicación"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sovelluksen nimi"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom de l'application"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alkalmazás neve"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nama aplikasi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome dell'applicazione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ名"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱 이름"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nama Aplikasi"
           }
         },
         "nl" : {
@@ -966,10 +801,10 @@
             "value" : "Nazwa aplikacji"
           }
         },
-        "ar" : {
+        "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسم التطبيق"
+            "value" : "Nome da aplicação"
           }
         },
         "ru" : {
@@ -978,64 +813,10 @@
             "value" : "Название приложения"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "value" : "Nombre de la aplicación",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリ名"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nama aplikasi"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App Name"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Nama Aplikasi",
-            "state" : "translated"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Nome dell'applicazione",
-            "state" : "translated"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "value" : "Název aplikace",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alkalmazás neve"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Sovelluksen nimi",
-            "state" : "translated"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nom de l'application"
+            "value" : "应用名称"
           }
         },
         "zh-Hant" : {
@@ -1043,33 +824,21 @@
             "state" : "translated",
             "value" : "應用名稱"
           }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱 이름"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "value" : "App-Name",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Nome da aplicação",
-            "state" : "translated"
-          }
         }
       }
     },
     "应用版本" : {
       "localizations" : {
-        "nl" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Applicatieversie"
+            "value" : "إصدار التطبيق"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze aplikace"
           }
         },
         "de" : {
@@ -1078,22 +847,10 @@
             "value" : "App-Version"
           }
         },
-        "cs" : {
-          "stringUnit" : {
-            "value" : "Verze aplikace",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versão da aplicação"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "应用版本"
+            "value" : "App Version"
           }
         },
         "es" : {
@@ -1102,70 +859,10 @@
             "value" : "Versión de la aplicación"
           }
         },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "Wersja aplikacji",
-            "state" : "translated"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Versi Aplikasi",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
+        "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アプリバージョン"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "value" : "Alkalmazás verziója",
-            "state" : "translated"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versione dell'applicazione"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "value" : "앱 버전",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "إصدار التطبيق",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Версия приложения"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "應用版本"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "App Version",
-            "state" : "translated"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versi aplikasi"
+            "value" : "Sovelluksen versio"
           }
         },
         "fr" : {
@@ -1174,292 +871,458 @@
             "value" : "Version de l'application"
           }
         },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sovelluksen versio"
-          }
-        }
-      }
-    },
-    "内容模块" : {
-      "localizations" : {
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tartalommodul"
+            "value" : "Alkalmazás verziója"
           }
         },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Modul Kandungan",
-            "state" : "translated"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Inhoudsmodule",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "value" : "Inhaltsmodul",
-            "state" : "translated"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "value" : "Módulo de contenido",
-            "state" : "translated"
-          }
-        },
-        "fr" : {
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Module de contenu"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Módulo de conteúdo",
-            "state" : "translated"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "value" : "內容模塊",
-            "state" : "translated"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "value" : "コンテンツモジュール",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "وحدة المحتوى"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Moduł treści"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sisältömoduuli"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Модуль содержания"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Content Module"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modul obsahu"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "value" : "内容模块",
-            "state" : "translated"
+            "value" : "Versi aplikasi"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Modulo di contenuto"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Modul konten",
-            "state" : "translated"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "value" : "콘텐츠 모듈",
-            "state" : "translated"
-          }
-        }
-      }
-    },
-    "发送失败：" : {
-      "localizations" : {
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verzenden mislukt:"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "value" : "전송 실패:",
-            "state" : "translated"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Küldés sikertelen:"
+            "value" : "Versione dell'applicazione"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "value" : "送信に失敗しました:",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "アプリバージョン"
           }
         },
-        "zh-Hant" : {
+        "ko" : {
           "stringUnit" : {
-            "value" : "發送失敗：",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "앱 버전"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versi Aplikasi"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applicatieversie"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja aplikacji"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versão da aplicação"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалось отправить:"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Lähetys epäonnistui:",
-            "state" : "translated"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Invio fallito:",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Falha ao enviar:",
-            "state" : "translated"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "value" : "Gagal dihantar:",
-            "state" : "translated"
-          }
-        },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "فشل الإرسال:",
-            "state" : "translated"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "value" : "Gagal mengirim:",
-            "state" : "translated"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "Failed to send:",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "value" : "Nie udało się wysłać:",
-            "state" : "translated"
+            "value" : "Версия приложения"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "value" : "发送失败：",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "应用版本"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "應用版本"
+          }
+        }
+      }
+    },
+    "当前日期" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التاريخ الحالي"
           }
         },
         "cs" : {
           "stringUnit" : {
-            "value" : "Odeslání selhalo:",
-            "state" : "translated"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
             "state" : "translated",
-            "value" : "Error al enviar:"
+            "value" : "Aktuální datum"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Senden fehlgeschlagen:"
+            "value" : "Aktuelles Datum"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Date"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fecha actual"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nykyinen päivämäärä"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de l'envoi:"
+            "value" : "Date actuelle"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuális dátum"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanggal saat ini"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data corrente"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在の日付"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 날짜"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarikh Semasa"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Huidige datum"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktualna data"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data atual"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Текущая дата"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前日期"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當前日期"
+          }
+        }
+      }
+    },
+    "意见反馈" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ملاحظات"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zpětná vazba"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retroalimentación de opiniones"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palaute"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commentaires"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visszajelzés"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umpan balik"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback sulle opinioni"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "意見フィードバック"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "의견 피드백"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maklum Balas"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback van mening"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informacje zwrotne"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback de opiniões"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отзыв о мнении"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "意见反馈"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "意見反饋"
+          }
+        }
+      }
+    },
+    "操作系统" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نظام التشغيل"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operační systém"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betriebssystem"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operating System"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema operativo"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käyttöjärjestelmä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Système d'exploitation"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operációs rendszer"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistem operasi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema operativo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オペレーティングシステム"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "운영 체제"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistem Pengendalian"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besturingssysteem"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System operacyjny"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema operativo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Операционная система"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作系统"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "操作系統"
           }
         }
       }
     },
     "相关参数" : {
       "localizations" : {
-        "zh-Hant" : {
-          "stringUnit" : {
-            "value" : "相關參數",
-            "state" : "translated"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "value" : "Relevante Parameter",
-            "state" : "translated"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Liittyvät parametrit",
-            "state" : "translated"
-          }
-        },
-        "pl" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parametry związane"
+            "value" : "المعلمات ذات الصلة"
           }
         },
         "cs" : {
           "stringUnit" : {
-            "value" : "Související parametry",
-            "state" : "translated"
+            "state" : "translated",
+            "value" : "Související parametry"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "value" : "Paramètres connexes",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Parâmetros relevantes"
+            "value" : "Relevante Parameter"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Related Parameters"
           }
         },
         "es" : {
@@ -1468,16 +1331,22 @@
             "value" : "Parámetros relevantes"
           }
         },
-        "ko" : {
+        "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "관련 매개변수"
+            "value" : "Liittyvät parametrit"
           }
         },
-        "ja" : {
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "関連パラメータ"
+            "value" : "Paramètres connexes"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kapcsolódó paraméterek"
           }
         },
         "id" : {
@@ -1486,40 +1355,22 @@
             "value" : "Parameter terkait"
           }
         },
-        "ar" : {
-          "stringUnit" : {
-            "value" : "المعلمات ذات الصلة",
-            "state" : "translated"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "相关参数"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Relevante parameters",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "value" : "Соответствующие параметры",
-            "state" : "translated"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "value" : "Related Parameters",
-            "state" : "translated"
-          }
-        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parametri rilevanti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "関連パラメータ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "관련 매개변수"
           }
         },
         "ms" : {
@@ -1528,50 +1379,174 @@
             "value" : "Parameter Berkaitan"
           }
         },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relevante parameters"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parametry związane"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parâmetros relevantes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Соответствующие параметры"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相关参数"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相關參數"
+          }
+        }
+      }
+    },
+    "设备型号" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طراز الجهاز"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model zařízení"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerätemodell"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device Model"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelo de dispositivo"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laitemalli"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modèle de l'appareil"
+          }
+        },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kapcsolódó paraméterek"
+            "value" : "Eszközmodell"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model perangkat"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modello del dispositivo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デバイスモデル"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "장치 모델"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model Peranti"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apparaatmodel"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model urządzenia"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modelo do dispositivo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Модель устройства"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设备型号"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設備型號"
           }
         }
       }
     },
     "错误信息" : {
       "localizations" : {
-        "id" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kesalahan informasi"
+            "value" : "رسالة خطأ"
           }
         },
-        "zh-Hans" : {
+        "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "错误信息"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "value" : "Virhe",
-            "state" : "translated"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ralat"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "エラーメッセージ"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "value" : "Error de información",
-            "state" : "translated"
+            "value" : "Chyba"
           }
         },
         "de" : {
@@ -1580,46 +1555,28 @@
             "value" : "Fehlermeldung"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error Message"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error de información"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Virhe"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Message d'erreur"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "value" : "Foutmelding",
-            "state" : "translated"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "錯誤信息"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Błąd"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "value" : "Errore di informazione",
-            "state" : "translated"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "value" : "Erro de informação",
-            "state" : "translated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ошибка информации"
           }
         },
         "hu" : {
@@ -1628,16 +1585,22 @@
             "value" : "Hiba"
           }
         },
-        "en" : {
+        "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error Message"
+            "value" : "Kesalahan informasi"
           }
         },
-        "ar" : {
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "رسالة خطأ"
+            "value" : "Errore di informazione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラーメッセージ"
           }
         },
         "ko" : {
@@ -1646,13 +1609,50 @@
             "value" : "오류 정보"
           }
         },
-        "cs" : {
+        "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chyba"
+            "value" : "Ralat"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foutmelding"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Błąd"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro de informação"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка информации"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "错误信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "錯誤信息"
           }
         }
       }
     }
-  }
+  },
+  "version" : "1.0"
 }
