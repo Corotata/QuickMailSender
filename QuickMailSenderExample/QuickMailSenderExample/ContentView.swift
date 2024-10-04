@@ -18,7 +18,7 @@ public struct FeedbackView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     
-    private let sender = PlatformMailSender()
+    private let sender = QuickMailSender()
     
     public var body: some View {
         Form {
