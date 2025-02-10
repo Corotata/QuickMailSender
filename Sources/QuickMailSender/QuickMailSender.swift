@@ -380,7 +380,19 @@ public class QuickMailSender: NSObject, @preconcurrency MailSender, MFMailCompos
 #elseif canImport(AppKit)
 import AppKit
 
-public class PlatformMailSender: NSObject, MailSender {
+@MainActor
+public class QuickMailSender: NSObject, @preconcurrency MailSender {
+    public static let `default` = QuickMailSender()
+    
+    public override init() {
+        super.init()
+    }
+    /// 发送邮件
+    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, completion: @escaping @Sendable (MailSendResult) -> Void){
+        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule)
+        sendMail(config: config, completion: completion)
+    }
+    
     public func sendMail(config: FeedbackMailConfig, completion: @escaping @Sendable (MailSendResult) -> Void) {
         let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         if let url = URL(string: urlString) {
