@@ -209,23 +209,38 @@
 import SwiftUI
 
 
+// MARK: - 邮件附件
+public struct EmailAttachment: Sendable {
+    public let data: Data
+    public let mimeType: String
+    public let fileName: String
+    
+    public init(data: Data, mimeType: String, fileName: String) {
+        self.data = data
+        self.mimeType = mimeType
+        self.fileName = fileName
+    }
+}
+
 // MARK: - 反馈邮件配置
 public struct FeedbackMailConfig: Sendable {
     let email: String
     let subject: String
     let body: String
+    let attachments: [EmailAttachment]?
     
-    public init(email: String, subject: String, body: String) {
+    public init(email: String, subject: String, body: String, attachments: [EmailAttachment]? = nil) {
         self.email = email
         self.subject = subject
         self.body = body
+        self.attachments = attachments
     }
     
     @MainActor
-    public static func mailConfig(to email: String, subject: String? = nil, feedbackModule: FeedbackModule) -> FeedbackMailConfig {
+    public static func mailConfig(to email: String, subject: String? = nil, feedbackModule: FeedbackModule, attachments: [EmailAttachment]? = nil) -> FeedbackMailConfig {
         let body = String.generateEmailBody(feedbackModule: feedbackModule)
         let finalSubject = subject ?? String.defaultSubject()
-        return FeedbackMailConfig(email: email, subject: finalSubject, body: body)
+        return FeedbackMailConfig(email: email, subject: finalSubject, body: body, attachments: attachments)
     }
 }
 
@@ -314,8 +329,8 @@ public class QuickMailSender: NSObject, @preconcurrency MailSender, MFMailCompos
     }
     
     /// 发送邮件
-    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, completion: @escaping @Sendable (MailSendResult) -> Void){
-        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule)
+    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, attachments: [EmailAttachment]? = nil, completion: @escaping @Sendable (MailSendResult) -> Void){
+        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule, attachments: attachments)
         sendMail(config: config, completion: completion)
     }
     
@@ -330,6 +345,13 @@ public class QuickMailSender: NSObject, @preconcurrency MailSender, MFMailCompos
                 mailComposer.setToRecipients([config.email])
                 mailComposer.setSubject(config.subject)
                 mailComposer.setMessageBody(config.body, isHTML: false)
+                
+                if let attachments = config.attachments {
+                    for attachment in attachments {
+                        mailComposer.addAttachmentData(attachment.data, mimeType: attachment.mimeType, fileName: attachment.fileName)
+                    }
+                }
+                
                 await mailActor.getViewController()?.present(mailComposer, animated: true)
             } else {
                 openMailTo(config: config)
@@ -388,19 +410,15 @@ public class QuickMailSender: NSObject, @preconcurrency MailSender {
         super.init()
     }
     /// 发送邮件
-    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, completion: @escaping @Sendable (MailSendResult) -> Void){
-        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule)
+    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, attachments: [EmailAttachment]? = nil, completion: @escaping @Sendable (MailSendResult) -> Void){
+        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule, attachments: attachments)
         sendMail(config: config, completion: completion)
     }
     
     public func sendMail(config: FeedbackMailConfig, completion: @escaping @Sendable (MailSendResult) -> Void) {
         let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
         if let url = URL(string: urlString) {
-            do {
-                try NSWorkspace.shared.open(url)
-            } catch {
-                completion(.failed(error))
-            }
+            NSWorkspace.shared.open(url)
         } else {
             completion(.failed(nil))
         }
