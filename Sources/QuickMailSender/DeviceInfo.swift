@@ -13,7 +13,10 @@ import UIKit
 
 struct DeviceInfo {
     static func getAppName() -> String {
-        return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "Unknown"
+        let info = Bundle.main.infoDictionary
+        let displayName = info?["CFBundleDisplayName"] as? String
+        let bundleName = info?["CFBundleName"] as? String
+        return displayName ?? bundleName ?? "Unknown"
     }
     
     static func getAppVersion() -> String {

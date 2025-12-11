@@ -466,7 +466,11 @@ extension String {
         }
         if let parameters = module.requestParameters {
             info += "\(NSLocalizedString("相关参数", bundle: .module, comment: "")):\n"
-            let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            var options: JSONSerialization.WritingOptions = [.prettyPrinted]
+            if #available(iOS 13.0, *) {
+                options.insert(.withoutEscapingSlashes)
+            }
+            let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: options)
             if let jsonString = jsonData.flatMap({ String(data: $0, encoding: .utf8) }) {
                 info += jsonString
             } else {
