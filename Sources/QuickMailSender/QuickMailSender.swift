@@ -452,7 +452,7 @@ extension String {
     }
     
     /// 生成邮件正文
-    @MainActor static func generateEmailBody(feedbackModule: FeedbackModule) -> String {
+    @MainActor public static func generateEmailBody(feedbackModule: FeedbackModule) -> String {
         var body = deviceBaseInfo()
         body += "\n\n" + generateFeedbackModuleInfo(feedbackModule)
         return body
