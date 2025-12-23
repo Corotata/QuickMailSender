@@ -35,7 +35,7 @@ public struct FeedbackContactView<FeedbackType: FeedbackTypeProtocol>: View {
                 .buttonStyle(.plain)
             }
             
-            Text("如果有任何问题或建议，欢迎发送邮件。若自动跳转失败，请手动复制以下信息。")
+            Text("如果有任何问题或建议，欢迎发送邮件。若自动跳转失败，请手动复制以下信息。",bundle: .module)
                 .font(.caption)
                 .foregroundStyle(.secondary)
             
@@ -48,11 +48,11 @@ public struct FeedbackContactView<FeedbackType: FeedbackTypeProtocol>: View {
             // Body Field
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
-                    Text("邮件正文 (包含设备信息)")
+                    Text("邮件正文 (包含设备信息)",bundle: .module)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Button("复制全部") {
+                    Button(String(localized:"复制全部",bundle: .module)) {
                         let pasteboard = NSPasteboard.general
                         pasteboard.clearContents()
                         pasteboard.setString(bodyText, forType: .string)
@@ -72,7 +72,7 @@ public struct FeedbackContactView<FeedbackType: FeedbackTypeProtocol>: View {
             }
             
             HStack {
-                Button("尝试自动转跳邮件") {
+                Button(String(localized:"尝试自动转跳邮件",bundle: .module)) {
                     feedbackType.sendFeedback { _ in }
                 }
                 .buttonStyle(.borderedProminent)
