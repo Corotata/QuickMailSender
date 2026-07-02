@@ -42,7 +42,7 @@ public extension View {
         isPresented: Binding<Bool>,
         feedbackType: FeedbackType
     ) -> some View {
-        popover(isPresented: isPresented) {
+        popover(isPresented: isPresented, arrowEdge: .top) {
             FeedbackContactView(
                 isPresented: isPresented,
                 feedbackType: feedbackType
