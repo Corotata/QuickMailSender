@@ -162,3 +162,33 @@ struct ContentView: View {
 - App Sandbox：`com.apple.security.scripting-targets = { "com.apple.mail": ["com.apple.mail.compose"] }`，限制为邮件撰写组，不申请读取邮箱权限或临时例外。
 
 首次使用带附件邮件由系统提示用户授权；普通无附件反馈不需要 Apple Events 授权。拒绝后库明确失败，不绕过授权，不改变默认邮件程序。脚本只创建并显示草稿，不执行发送命令。
+
+## 可选反馈确认与资源 ZIP
+
+旧的 `sendMail` / `sendFeedback` 保持不变，不会自动多弹一个确认框。需要确认时，以 sheet 呈现 `FeedbackConfirmationView`，通过 `FeedbackConfirmationConfiguration` 传入已本地化的标题、问题引导、按钮文案及附件说明。`attachmentDescription` 为 nil 时只显示普通反馈；有说明时显示默认勾选的附件选项。
+
+`onConfirm` 回传是否附带资源。建议先关闭确认 sheet，在 sheet 的 `onDismiss` 中继续，以免邮件与确认界面同时呈现。取消或直接关闭确认框不会触发 `onConfirm`，不应生成附件或打开邮件。
+
+文件打包有两种使用方式：
+
+```swift
+// 已确认且勾选附件：库压缩明确提供的文件，在后台读取 ZIP，然后打开邮件。
+QuickMailSender.default.sendMail(
+    config: mailConfig,
+    resourceFiles: includeFiles ? [originalURL, translationsJSONURL, settingsURL] : [],
+    archiveName: "feedback.zip"
+) { result in
+    // 用户完成邮件操作后处理状态；这不是自动发送接口。
+}
+
+// 应用需要保存、分享 ZIP 或提供失败兜底时，单独生成文件。
+let zipURL = try await FeedbackArchive.prepare(files: resources, archiveName: "feedback.zip")
+// 完成邮件交接或保存后清理，原始文件不会被删除。
+FeedbackArchive.remove(zipURL)
+```
+
+库只接受明确列出的普通文件，不递归扫描目录；同名文件报错以避免遗漏。每次 ZIP 使用独立临时目录，失败清理中间文件。路径入口生成的附件与现有附件合并；空资源列表沿用原有无新增附件流程。书籍 JSON、日志过滤和数据库快照仍由宿主应用准备，库不采集业务数据。ZIP 使用 Zip 2.1.2 及以上兼容版本。API 报错继续通过 `.failed(error)` 回报。
+
+新增资源路径入口在 iOS 未配置系统邮件账户时明确失败，不通过无法携带附件的 mailto 静默丢弃 ZIP；宿主可选择分享或保存文件作为兜底。旧接口行为保持兼容。
+
+确认界面另支持 `FeedbackConfirmationView(configuration: configuration, themeColor: .mint, onConfirm: ...)`：主题色由宿主传入，默认使用宿主 `accentColor`。底部两个等宽按钮沿用 TxtToEpub 编辑页的 headline、12pt 上下内边距、12pt 圆角；主操作为实色，次操作为浅底描边。
