@@ -2360,6 +2360,601 @@
           }
         }
       }
+    },
+    "已有邮件正在打开，请稍后重试。" : {
+      "comment" : "macOS 邮件反馈失败时展示给用户的错误说明。",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已有邮件正在打开，请稍后重试。"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "value" : "هناك رسالة بريد إلكتروني قيد الفتح بالفعل. حاول مرة أخرى لاحقًا.",
+            "state" : "translated"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "value" : "Již se otevírá e-mail. Zkuste to později.",
+            "state" : "translated"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "value" : "Eine E-Mail wird bereits geöffnet. Bitte versuchen Sie es später erneut.",
+            "state" : "translated"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "value" : "An email is already opening. Please try again later.",
+            "state" : "translated"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "value" : "Ya se está abriendo un correo. Inténtalo de nuevo más tarde.",
+            "state" : "translated"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "value" : "Sähköpostia avataan jo. Yritä myöhemmin uudelleen.",
+            "state" : "translated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "value" : "Un e-mail est déjà en cours d’ouverture. Réessayez plus tard.",
+            "state" : "translated"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "value" : "Már folyamatban van egy e-mail megnyitása. Próbálja újra később.",
+            "state" : "translated"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "value" : "Email sedang dibuka. Coba lagi nanti.",
+            "state" : "translated"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "value" : "È già in corso l’apertura di un’email. Riprova più tardi.",
+            "state" : "translated"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "value" : "メールを開いています。しばらくしてから再試行してください。",
+            "state" : "translated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "value" : "이미 이메일을 여는 중입니다. 잠시 후 다시 시도하세요.",
+            "state" : "translated"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "value" : "E-mel sedang dibuka. Cuba lagi kemudian.",
+            "state" : "translated"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "value" : "Er wordt al een e-mail geopend. Probeer het later opnieuw.",
+            "state" : "translated"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "value" : "Trwa już otwieranie wiadomości e-mail. Spróbuj ponownie później.",
+            "state" : "translated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "value" : "Já está a ser aberto um e-mail. Tente novamente mais tarde.",
+            "state" : "translated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "value" : "Письмо уже открывается. Повторите попытку позже.",
+            "state" : "translated"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "value" : "已有郵件正在開啟，請稍後重試。",
+            "state" : "translated"
+          }
+        }
+      }
+    },
+    "无法打开 Apple 邮件，请检查它是否已安装并配置账户。" : {
+      "comment" : "macOS 邮件反馈失败时展示给用户的错误说明。",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法打开 Apple 邮件，请检查它是否已安装并配置账户。"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "value" : "تعذر فتح Apple Mail. تحقق من تثبيته وإعداد حساب فيه.",
+            "state" : "translated"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "value" : "Nelze otevřít Apple Mail. Zkontrolujte, zda je nainstalovaný a má nastavený účet.",
+            "state" : "translated"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "value" : "Apple Mail kann nicht geöffnet werden. Prüfen Sie, ob es installiert und ein Account eingerichtet ist.",
+            "state" : "translated"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "value" : "Unable to open Apple Mail. Check that it is installed and an account is configured.",
+            "state" : "translated"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "value" : "No se puede abrir Apple Mail. Comprueba que esté instalado y tenga una cuenta configurada.",
+            "state" : "translated"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "value" : "Apple Mailia ei voi avata. Tarkista, että se on asennettu ja tili on määritetty.",
+            "state" : "translated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "value" : "Impossible d’ouvrir Apple Mail. Vérifiez que l’app est installée et qu’un compte est configuré.",
+            "state" : "translated"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "value" : "Az Apple Mail nem nyitható meg. Ellenőrizze, hogy telepítve van-e, és be van-e állítva egy fiók.",
+            "state" : "translated"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "value" : "Tidak dapat membuka Apple Mail. Pastikan aplikasi terpasang dan akun telah dikonfigurasi.",
+            "state" : "translated"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "value" : "Impossibile aprire Apple Mail. Verifica che sia installato e che un account sia configurato.",
+            "state" : "translated"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "value" : "Appleのメールを開けません。インストールされ、アカウントが設定されているか確認してください。",
+            "state" : "translated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "value" : "Apple Mail을 열 수 없습니다. 설치 여부와 계정 설정을 확인하세요.",
+            "state" : "translated"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "value" : "Tidak dapat membuka Apple Mail. Pastikan aplikasi dipasang dan akaun dikonfigurasikan.",
+            "state" : "translated"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "value" : "Kan Apple Mail niet openen. Controleer of het is geïnstalleerd en een account is ingesteld.",
+            "state" : "translated"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "value" : "Nie można otworzyć Apple Mail. Sprawdź, czy aplikacja jest zainstalowana i ma skonfigurowane konto.",
+            "state" : "translated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "value" : "Não foi possível abrir o Apple Mail. Verifique se está instalado e se tem uma conta configurada.",
+            "state" : "translated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "value" : "Не удалось открыть Apple Mail. Проверьте, установлено ли приложение и настроена ли учётная запись.",
+            "state" : "translated"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "value" : "無法開啟 Apple 郵件，請檢查是否已安裝並設定帳號。",
+            "state" : "translated"
+          }
+        }
+      }
+    },
+    "邮件附件的文件名无效。" : {
+      "comment" : "macOS 邮件反馈失败时展示给用户的错误说明。",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "邮件附件的文件名无效。"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "value" : "اسم ملف مرفق البريد الإلكتروني غير صالح.",
+            "state" : "translated"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "value" : "Název souboru e-mailové přílohy není platný.",
+            "state" : "translated"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "value" : "Der Dateiname des E-Mail-Anhangs ist ungültig.",
+            "state" : "translated"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "value" : "The email attachment filename is invalid.",
+            "state" : "translated"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "value" : "El nombre del archivo adjunto no es válido.",
+            "state" : "translated"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "value" : "Sähköpostiliitteen tiedostonimi on virheellinen.",
+            "state" : "translated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "value" : "Le nom du fichier joint à l’e-mail n’est pas valide.",
+            "state" : "translated"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "value" : "Az e-mail-melléklet fájlneve érvénytelen.",
+            "state" : "translated"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "value" : "Nama file lampiran email tidak valid.",
+            "state" : "translated"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "value" : "Il nome del file allegato all’email non è valido.",
+            "state" : "translated"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "value" : "メールの添付ファイル名が無効です。",
+            "state" : "translated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "value" : "이메일 첨부 파일 이름이 유효하지 않습니다.",
+            "state" : "translated"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "value" : "Nama fail lampiran e-mel tidak sah.",
+            "state" : "translated"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "value" : "De bestandsnaam van de e-mailbijlage is ongeldig.",
+            "state" : "translated"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "value" : "Nazwa pliku załącznika jest nieprawidłowa.",
+            "state" : "translated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "value" : "O nome do ficheiro anexo ao e-mail é inválido.",
+            "state" : "translated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "value" : "Недопустимое имя файла вложения.",
+            "state" : "translated"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "value" : "郵件附件的檔案名稱無效。",
+            "state" : "translated"
+          }
+        }
+      }
+    },
+    "无法创建 Apple 邮件草稿。" : {
+      "comment" : "macOS 邮件反馈失败时展示给用户的错误说明。",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法创建 Apple 邮件草稿。"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "value" : "تعذر إنشاء مسودة في Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "value" : "Nelze vytvořit koncept v Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "value" : "Ein Entwurf in Apple Mail konnte nicht erstellt werden.",
+            "state" : "translated"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "value" : "Unable to create an Apple Mail draft.",
+            "state" : "translated"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "value" : "No se puede crear un borrador en Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "value" : "Apple Mailin luonnosta ei voi luoda.",
+            "state" : "translated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "value" : "Impossible de créer un brouillon dans Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "value" : "Nem sikerült piszkozatot létrehozni az Apple Mailben.",
+            "state" : "translated"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "value" : "Tidak dapat membuat draf Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "value" : "Impossibile creare una bozza in Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "value" : "Appleのメールで下書きを作成できません。",
+            "state" : "translated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "value" : "Apple Mail 초안을 만들 수 없습니다.",
+            "state" : "translated"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "value" : "Tidak dapat mencipta draf Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "value" : "Kan geen concept in Apple Mail aanmaken.",
+            "state" : "translated"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "value" : "Nie można utworzyć wersji roboczej w Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "value" : "Não foi possível criar um rascunho no Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "value" : "Не удалось создать черновик в Apple Mail.",
+            "state" : "translated"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "value" : "無法建立 Apple 郵件草稿。",
+            "state" : "translated"
+          }
+        }
+      }
+    },
+    "未获准创建 Apple 邮件草稿。请在系统设置的隐私与安全性→自动化中允许此应用控制邮件。" : {
+      "comment" : "macOS 邮件反馈失败时展示给用户的错误说明。",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未获准创建 Apple 邮件草稿。请在系统设置的隐私与安全性→自动化中允许此应用控制邮件。"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "value" : "لم يُسمح بإنشاء مسودة في Apple Mail. اسمح لهذا التطبيق بالتحكم في Mail من إعدادات النظام ← الخصوصية والأمان ← الأتمتة.",
+            "state" : "translated"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "value" : "Vytvoření konceptu v Apple Mail nebylo povoleno. V Nastavení systému → Soukromí a zabezpečení → Automatizace povolte této aplikaci ovládat Mail.",
+            "state" : "translated"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "value" : "Das Erstellen eines Entwurfs in Apple Mail wurde nicht erlaubt. Erlauben Sie dieser App unter Systemeinstellungen → Datenschutz & Sicherheit → Automation, Mail zu steuern.",
+            "state" : "translated"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "value" : "Permission to create an Apple Mail draft was denied. Allow this app to control Mail in System Settings → Privacy & Security → Automation.",
+            "state" : "translated"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "value" : "No se ha permitido crear un borrador en Apple Mail. Permite que esta app controle Mail en Ajustes del Sistema → Privacidad y seguridad → Automatización.",
+            "state" : "translated"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "value" : "Apple Mailin luonnoksen luomiseen ei annettu lupaa. Salli tämän apin hallita Mailia kohdassa Järjestelmäasetukset → Tietosuoja ja suojaus → Automaatio.",
+            "state" : "translated"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "value" : "La création d’un brouillon dans Apple Mail n’a pas été autorisée. Autorisez cette app à contrôler Mail dans Réglages Système → Confidentialité et sécurité → Automatisation.",
+            "state" : "translated"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "value" : "Az Apple Mail-piszkozat létrehozása nem lett engedélyezve. A Rendszerbeállítások → Adatvédelem és biztonság → Automatizálás alatt engedélyezze ennek az appnak a Mail vezérlését.",
+            "state" : "translated"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "value" : "Izin untuk membuat draf Apple Mail ditolak. Izinkan aplikasi ini mengontrol Mail di Pengaturan Sistem → Privasi & Keamanan → Automasi.",
+            "state" : "translated"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "value" : "La creazione di una bozza in Apple Mail non è stata autorizzata. Consenti a questa app di controllare Mail in Impostazioni di Sistema → Privacy e sicurezza → Automazione.",
+            "state" : "translated"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "value" : "Appleのメールで下書きを作成する権限がありません。システム設定 → プライバシーとセキュリティ → オートメーションで、このアプリによるメールの制御を許可してください。",
+            "state" : "translated"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "value" : "Apple Mail 초안 생성 권한이 거부되었습니다. 시스템 설정 → 개인정보 보호 및 보안 → 자동화에서 이 앱이 Mail을 제어하도록 허용하세요.",
+            "state" : "translated"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "value" : "Kebenaran untuk mencipta draf Apple Mail ditolak. Benarkan aplikasi ini mengawal Mail dalam Tetapan Sistem → Privasi & Keselamatan → Automasi.",
+            "state" : "translated"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "value" : "Toestemming om een concept in Apple Mail aan te maken is geweigerd. Sta deze app toe Mail te bedienen via Systeeminstellingen → Privacy en beveiliging → Automatisering.",
+            "state" : "translated"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "value" : "Odmówiono pozwolenia na utworzenie wersji roboczej w Apple Mail. Zezwól tej aplikacji na sterowanie Mail w Ustawieniach systemowych → Prywatność i ochrona → Automatyzacja.",
+            "state" : "translated"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "value" : "Não foi permitida a criação de um rascunho no Apple Mail. Permita que esta aplicação controle o Mail em Definições do Sistema → Privacidade e segurança → Automatização.",
+            "state" : "translated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "value" : "Разрешение на создание черновика в Apple Mail не предоставлено. Разрешите этому приложению управлять Mail в разделе Системные настройки → Конфиденциальность и безопасность → Автоматизация.",
+            "state" : "translated"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "value" : "未獲准建立 Apple 郵件草稿。請在系統設定的隱私權與安全性 → 自動化中允許此應用程式控制郵件。",
+            "state" : "translated"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

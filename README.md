@@ -150,4 +150,15 @@ struct ContentView: View {
 ## 注意事项
 
 - 在 iOS 设备上，如果用户没有设置邮件账户，组件会自动打开 `mailto:` URL。
-- 在 macOS 上，组件会直接打开默认邮件客户端。
+- 在 macOS 上，组件明确使用 Apple 邮件。无附件邮件通过 NSWorkspace 将标准 mailto 交给 Apple 邮件，直接打开写邮件窗口；带附件邮件通过受限 Apple Events 创建可见的新邮件并添加附件，完成后激活 Mail。带附件流程需要用户授权自动化。失败通过 `.failed(error)` 回报，调用方可以提供保存附件等兜底。
+- macOS 的 `.sent` 表示打开邮件或创建草稿的命令完成，不保证用户已点击发送或邮件已送达。库会保留临时附件到创建命令完成，再清理本次请求的临时文件。
+
+### macOS 宿主权限配置
+
+带附件流程的权限需要由使用库的 App 声明，Swift Package 无法替宿主申请。仅在使用此功能的 Mac target 配置：
+
+- Info.plist：`NSAppleEventsUsageDescription`，解释创建反馈邮件及附件的用途。
+- Hardened Runtime：`com.apple.security.automation.apple-events = true`。
+- App Sandbox：`com.apple.security.scripting-targets = { "com.apple.mail": ["com.apple.mail.compose"] }`，限制为邮件撰写组，不申请读取邮箱权限或临时例外。
+
+首次使用带附件邮件由系统提示用户授权；普通无附件反馈不需要 Apple Events 授权。拒绝后库明确失败，不绕过授权，不改变默认邮件程序。脚本只创建并显示草稿，不执行发送命令。

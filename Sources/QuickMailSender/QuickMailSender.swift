@@ -274,13 +274,13 @@ public enum MailSendResult: Sendable {
     public var description: String {
         switch self {
         case .sent:
-            return NSLocalizedString("已提交，请稍后核对邮件是否发送成功。", bundle: .main, comment: "")
+            return NSLocalizedString("已提交，请稍后核对邮件是否发送成功。", bundle: .module, comment: "")
         case .saved:
-           return NSLocalizedString("已保存", bundle: .main, comment: "")
+           return NSLocalizedString("已保存", bundle: .module, comment: "")
         case .cancelled:
-           return NSLocalizedString("已取消", bundle: .main, comment: "")
+           return NSLocalizedString("已取消", bundle: .module, comment: "")
         case .failed(let error):
-            return NSLocalizedString("发送失败：", bundle: .main, comment: "") + (error?.localizedDescription ?? "")
+            return NSLocalizedString("发送失败：", bundle: .module, comment: "") + (error?.localizedDescription ?? "")
         }
     }
     
@@ -402,29 +402,40 @@ public class QuickMailSender: NSObject, @preconcurrency MailSender, MFMailCompos
 #elseif canImport(AppKit)
 import AppKit
 
+/// macOS 邮件入口，明确指定 Apple 邮件创建草稿并携带附件。
 @MainActor
 public class QuickMailSender: NSObject, @preconcurrency MailSender {
+    /// 默认邮件发送器。
     public static let `default` = QuickMailSender()
-    
+    /// 保持邮件撰写会话、附件文件及回调存活。
+    private var composeSession: MacMailComposeSession?
+
+    /// 创建独立发送器。
     public override init() {
         super.init()
     }
-    /// 发送邮件
-    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, attachments: [EmailAttachment]? = nil, completion: @escaping @Sendable (MailSendResult) -> Void){
-        let config = FeedbackMailConfig.mailConfig(to: email, subject:subject, feedbackModule: feedbackModule, attachments: attachments)
+
+    /// 创建反馈邮件草稿，最终发送由用户在邮件应用中确认。
+    public func sendMail(to email: String, subject: String? = nil, feedbackModule: DefaultFeedbackModule, attachments: [EmailAttachment]? = nil, completion: @escaping @Sendable (MailSendResult) -> Void) {
+        let config = FeedbackMailConfig.mailConfig(to: email, subject: subject, feedbackModule: feedbackModule, attachments: attachments)
         sendMail(config: config, completion: completion)
     }
-    
+
+    /// 明确指定 Apple 邮件；失败时明确回调，不退回会丢失附件的 mailto。
     public func sendMail(config: FeedbackMailConfig, completion: @escaping @Sendable (MailSendResult) -> Void) {
-        let urlString = "mailto:\(config.email)?subject=\(config.subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&body=\(config.body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        if let url = URL(string: urlString) {
-            NSWorkspace.shared.open(url)
-        } else {
-            completion(.failed(nil))
+        guard composeSession == nil else {
+            completion(.failed(MacMailSharingError.alreadySharing))
+            return
         }
+        let session = MacMailComposeSession { [weak self] result in
+            self?.composeSession = nil
+            completion(result)
+        }
+        composeSession = session
+        session.start(config: config)
     }
-    
 }
+
 #endif
 
 // MARK: - 字符串扩展
