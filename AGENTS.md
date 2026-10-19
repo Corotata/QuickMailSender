@@ -85,6 +85,9 @@ QuickMailSender.default.sendMail(
 - 明确指定 Apple 邮件，不更改默认邮件客户端。
 - 无附件使用 NSWorkspace 打开标准 mailto；带附件用公开 Apple Events 创建可见邮件编辑窗口。不得加入 send、save 或 close 命令强制发送/关闭。
 - 带附件宿主必须按 README 配置 `NSAppleEventsUsageDescription`、`com.apple.security.automation.apple-events` 和仅限 `com.apple.mail.compose` 的 scripting-targets。普通无附件不需 Apple Events。
+- 新宿主必须按 README 的“macOS 新项目接入核对”检查 Debug/Release 的实际 entitlement 绑定与普通签名产物；仅添加权限源文件、跑通无附件反馈或 Xcode 测试宿主不能算附件接入完成。
+- Mail 已运行仍报“应用程序没有运行”时，先核对签名中的 Mail compose scripting-targets，不能直接归因于 Mail 未启动；EPUB OMG 已实际复现并通过补齐宿主配置修复。
+- 验收必须通过真实入口创建未发送草稿，从 Mail 保存附件、解包并比较原文件名与内容；遵循 README 的完整标准。自动测试只证明其覆盖部分，不得冒充实际 Mail 交接通过。
 - `.sent` 表示 Mail 打开/创建邮件命令完成，不代表用户发送或投递成功。
 - 文本和路径通过类型化描述符传递，不拼接用户内容到脚本。拒绝授权时明确失败，不绕过系统授权。
 

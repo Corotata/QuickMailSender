@@ -163,6 +163,60 @@ struct ContentView: View {
 
 首次使用带附件邮件由系统提示用户授权；普通无附件反馈不需要 Apple Events 授权。拒绝后库明确失败，不绕过授权，不改变默认邮件程序。脚本只创建并显示草稿，不执行发送命令。
 
+### macOS 新项目接入核对（必做）
+
+先配置宿主，再验证带附件路径。只验证普通反馈、ZIP 生成或编译成功，不能证明带附件邮件可用。
+
+1. 在 Mac App 实际使用的 entitlements 文件中合并以下声明；保留宿主已有权限：
+
+   ```xml
+   <key>com.apple.security.automation.apple-events</key>
+   <true/>
+   <key>com.apple.security.scripting-targets</key>
+   <dict>
+       <key>com.apple.mail</key>
+       <array>
+           <string>com.apple.mail.compose</string>
+       </array>
+   </dict>
+   ```
+
+2. Info.plist 配置 `NSAppleEventsUsageDescription`，例如“用于创建反馈邮件并附加您确认提供的诊断文件。”使用生成 Info.plist 时，对应构建设置为 `INFOPLIST_KEY_NSAppleEventsUsageDescription`；界面文案由宿主本地化。
+3. 核对 Debug 与 Release 的 `CODE_SIGN_ENTITLEMENTS` 都指向正确文件。跨平台 target 可分别配置 `CODE_SIGN_ENTITLEMENTS[sdk=macosx*]` 和 `INFOPLIST_KEY_NSAppleEventsUsageDescription[sdk=macosx*]`，避免只改了 iOS 文件或未被 target 使用的文件。
+4. 重新构建并启动本次产物。对普通签名构建执行下列只读检查，确认最终 App 内确实含有上述两项权限、Mail 撰写组和用途说明：
+
+   ```sh
+   # 将路径替换为当前 Debug 或归档后的 App；不要检查旧产物。
+   codesign -d --entitlements - "/实际路径/YourApp.app"
+   /usr/libexec/PlistBuddy -c 'Print :NSAppleEventsUsageDescription' "/实际路径/YourApp.app/Contents/Info.plist"
+   ```
+
+   Xcode 测试宿主可能注入临时权限，不能代替普通 App 的签名核对与实际验收。不要通过关闭 App Sandbox、增加全盘读取权限或临时 Apple Events 例外解决接线问题。
+
+### macOS 常见故障与定位顺序
+
+| 现象 | 先核对什么 |
+| --- | --- |
+| Mail 已运行，仍报“应用程序没有运行” | 先检查最终 App 签名是否缺少 `com.apple.security.scripting-targets` 中的 `com.apple.mail.compose`。EPUB OMG 曾因漏配此项出现该错误；该错误文字不能单独证明 Mail 没启动。 |
+| 无附件正常，带附件失败 | 两者使用不同路径：无附件为 NSWorkspace + mailto，附件为 Apple Events。核对三项宿主配置及最终签名，再检查授权与附件可读性。 |
+| 报未授权 / `QuickMailSender.AppleMail` 错误码 `-1743` | 配置正确后，由用户在“系统设置 → 隐私与安全性 → 自动化”确认允许宿主控制邮件；不绕过或自动重置授权。 |
+| 暂时只看到 Mail 原窗口或其他项目的草稿 | 等待交接回调，并从 Mail“窗口”菜单按本次唯一主题定位；不要仅凭最前面的窗口判定失败。期间阻止重复点击，并展示忙碌状态。 |
+| 创建失败 | 展示真实错误，保留可重试资源；宿主可提供保存 ZIP 的兜底。不要退回无法携带附件的 mailto 后报告成功。 |
+
+### 带附件流程的完成标准
+
+每个新宿主至少用一份无私人内容、带中文文件名的测试文件，走一次真实产品入口：
+
+1. 触发业务错误 → 打开反馈确认 → 勾选附件 → 关闭确认页后调用公共邮件接口；取消确认不打开邮件。
+2. 用普通签名 App 创建 Mail 草稿，确认收件人、唯一主题、错误信息、文件名及 ZIP 附件可见。遇到系统授权提示由用户确认。
+3. 用 Mail 的“存储附件”保存 ZIP，在本机解包；核对文件名、大小及内容哈希或逐字节一致。附件图标出现不等于内容完整。
+4. 确认交接完成后 UI 解除忙碌，临时副本按所有权清理，用户原文件仍在；失败时能显示错误并重试。
+5. 记录实际验证的 App、构建配置和结果；保留为未发送草稿供检查，不自动发送测试邮件。`.sent` 只说明邮件交接命令完成。
+
+自动测试应覆盖业务资源暂存 → `FeedbackArchive` → 解包一致性及原文件保留；此测试与脚本编译测试均不能替代真实 Mail 草稿验收。
+
+**已验证经验（2026-10-19）：** EPUB OMG 补齐 Mail 撰写权限后，普通签名 Debug App 成功创建带约 2.1 MB ZIP 的反馈草稿。从 Mail 保存附件并以 macOS `ditto` 解包后，中文 EPUB 文件名、2,098,834 字节及 SHA-256 均与原测试文件一致；未发送邮件。EPUBTranslator 也已声明同一组 macOS 权限，使用现成 ZIP 附件入口；两种打包入口最终复用同一 macOS 草稿实现。
+
 ## 可选反馈确认与资源 ZIP
 
 旧的 `sendMail` / `sendFeedback` 保持不变，不会自动多弹一个确认框。需要确认时，以 sheet 呈现 `FeedbackConfirmationView`，通过 `FeedbackConfirmationConfiguration` 传入已本地化的标题、问题引导、按钮文案及附件说明。`attachmentDescription` 为 nil 时只显示普通反馈；有说明时显示默认勾选的附件选项。
@@ -178,7 +232,7 @@ QuickMailSender.default.sendMail(
     resourceFiles: includeFiles ? [originalURL, translationsJSONURL, settingsURL] : [],
     archiveName: "feedback.zip"
 ) { result in
-    // 用户完成邮件操作后处理状态；这不是自动发送接口。
+    // 处理平台交接结果；macOS 的 .sent 仅表示草稿创建命令完成。
 }
 
 // 应用需要保存、分享 ZIP 或提供失败兜底时，单独生成文件。
